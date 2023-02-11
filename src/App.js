@@ -7,14 +7,14 @@ function App() {
 
   // completion function 
   const completion = async () => {
-    
+    fs.createReadStream("src.png")
     // Generate image 
-    const response = await openai.createImageVariation(
-      fs.createReadStream("corgi_and_cat_paw.png"),
-      1,
-      "1024x1024"
-    );
-    image_url = response.data.data[0].url;
+    // const response = await openai.createImageVariation(
+    //   fs.createReadStream("src.png"),
+    //   3,
+    //   "1024x1024"
+    // );
+    // image_url = response.data.data[0].url;
 
   }
 
@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App mx-auto mt-20 max-w-screen-sm p-7">
 
-      
+      <img className="" src={}></img>
       
     </div>
   );
