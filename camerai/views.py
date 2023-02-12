@@ -54,6 +54,7 @@ class HomeView(TemplateView):
 
         # Get data from image url
 
+        # Write the image data to the file
         img = urllib.request.urlopen(image_url).read()
         fhand = open('image.png', 'wb')
         fhand.write(img)
