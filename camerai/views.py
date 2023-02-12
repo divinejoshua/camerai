@@ -34,7 +34,7 @@ class HomeView(TemplateView):
         return render(request, self.template_name, self.context)
 
     # Open AI image generation
-    def generateImage(self, request, *args, **kwargs):
+    def generateImage(self, image_url, *args, **kwargs):
         pass
 
 
