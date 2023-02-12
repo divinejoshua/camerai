@@ -4,6 +4,9 @@ from django.views.generic import TemplateView
 from .models import OrginalImage
 from .forms import CreateImageForm
 
+# OpenAI 
+import openai
+
 
 # Create your views here.
 class HomeView(TemplateView):

@@ -29,6 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = [] 
 
 
+OPENAI_SECRET_KEY = config('OPENAI_SECRET_KEY')
+
 # Application definition
 
 INSTALLED_APPS = [
