@@ -55,11 +55,16 @@
         <p class="text-muted">Camerai Image Generator is an app that uses artificial intelligence to create unique images. It allows users to quickly and easily generate high-quality images with a few simple clicks. The app is perfect for graphic designers, photographers, and anyone looking to create stunning visuals.</p>
 
         <!-- Form button  -->
-        <label class="text-main">Select an image</label>
-        <div class="input-group mb-3 mt-3">
-            <input type="file" class="form-control" id="inputGroupFile02">
-            <label class="input-group-text bg-main" for="inputGroupFile02">Upload</label>
-        </div>
+        <label class="text-muted text-bold">Select an image</label>
+
+        <form method="post" action="">{% csrf_token %}
+            <div class="input-group mb-3 mt-3">
+                <input type="file" class="form-control" id="inputGroupFile02">
+                <label class="input-group-text " for="inputGroupFile02">Select file</label>
+            </div>
+
+            <button type="submit" class="btn bg-main text-white mt-2">Submit</button>
+        </form>
 
 
       </main>
