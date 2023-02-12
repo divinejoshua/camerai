@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [] 
 
 
-OPENAI_SECRET_KEY = config('OPENAI_SECRET_KEY')
+OPENAI_API_KEY = config('OPENAI_API_KEY')
 
 # Application definition
 
