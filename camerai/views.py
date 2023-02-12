@@ -35,6 +35,14 @@ class HomeView(TemplateView):
 
     # Open AI image generation
     def generateImage(self, image_url, *args, **kwargs):
-        pass
+        response = openai.Image.create_edit(
+            image=open("sunlit_lounge.png", "rb"),
+            mask=open("mask.png", "rb"),
+            prompt="A sunlit indoor lounge area with a pool containing a flamingo",
+            n=1,
+            size="1024x1024"
+        )
+        new_image_url = response['data'][0]['url']
+        return new_image_url
 
 
