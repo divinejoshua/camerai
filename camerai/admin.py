@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import OrginalImage, GenertedImages
+
+# Models 
+admin.site.register(OrginalImage)
+admin.site.register(GenertedImages)
