@@ -3,7 +3,7 @@ from django import forms
 from .models import OrginalImage 
 
 
-class CreateBlogPostForm(forms.ModelForm):
+class CreateImageForm(forms.ModelForm):
 
 	class Meta:
 		model = OrginalImage

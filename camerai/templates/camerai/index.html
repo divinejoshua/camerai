@@ -62,12 +62,30 @@
 
         <form method="post" action="">{% csrf_token %}
             <div class="input-group mb-3 mt-3">
-                <input type="file" class="form-control" id="inputGroupFile02">
+                <input type="file" class="form-control" name="image">
                 <!-- <label class="input-group-text " for="inputGroupFile02">Select file</label> -->
             </div>
 
             <button type="submit" class="btn bg-main text-white mt-2">Submit</button>
         </form>
+
+        <!-- Field errors  -->
+        {% for field in form %}
+            <p>
+                {% for error in field.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </p>
+        {% endfor %}
+
+        <!-- Non field errors  -->
+        {% if form.non_field_errors %}
+            <div style="color: red">
+                <p>{{form.non_field_errors}}</p>
+            </div>
+        {% endif %}
+
+
 
         <!-- Image thumbnail  -->
         <div class="container mt-5">
@@ -86,7 +104,6 @@
                 </div>
             </div>
         </div>
-
 
       </main>
     
