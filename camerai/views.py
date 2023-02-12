@@ -6,7 +6,7 @@ from .forms import CreateImageForm
 
 # OpenAI 
 import openai
-
+import urllib.request, urllib.parse, urllib.error
 
 # Create your views here.
 class HomeView(TemplateView):
@@ -29,7 +29,13 @@ class HomeView(TemplateView):
             obj = form.save(commit=False)
             obj.save()
             self.context['orginal_image'] = obj.image
-            print('http://'+request.META['HTTP_HOST']+'/media/'+str(obj.image))
+
+            image_url = 'http://'+request.META['HTTP_HOST']+'/media/'+str(obj.image)
+
+            # call the generate method 
+            self.generateImage(image_url)
+
+
             form = CreateImageForm()
 
         self.context['form'] = form
@@ -38,14 +44,26 @@ class HomeView(TemplateView):
 
     # Open AI image generation
     def generateImage(self, image_url, *args, **kwargs):
+
+        # Get data from image url
+
+        img = urllib.request.urlopen(image_url).read()
+        fhand = open('cover3.jpg', 'wb')
+        fhand.write(img)
+        fhand.close()
+
+        # Send request to open AI image generation
         response = openai.Image.create_edit(
-            image=open("sunlit_lounge.png", "rb"),
+            image=open("cover3.jpg", "rb"),
             mask=open("mask.png", "rb"),
             prompt="A sunlit indoor lounge area with a pool containing a flamingo",
             n=1,
             size="1024x1024"
         )
+        # recieve response url
         new_image_url = response['data'][0]['url']
-        return new_image_url
+
+        print(new_image_url)
+        return 
 
 
