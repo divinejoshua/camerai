@@ -25,15 +25,11 @@ class HomeView(TemplateView):
         if form.is_valid():
             obj = form.save(commit=False)
             obj.save()
-
-            open
-
+            self.context['orginal_image'] = obj.image
             print('http://'+request.META['HTTP_HOST']+'/media/'+str(obj.image))
             form = CreateImageForm()
 
         self.context['form'] = form
-
-        self.context['orginal_image'] = obj.image
 
         return render(request, self.template_name, self.context)
 
