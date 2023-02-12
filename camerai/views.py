@@ -26,10 +26,19 @@ class HomeView(TemplateView):
             obj = form.save(commit=False)
             obj.save()
 
+            open
+
             print('http://'+request.META['HTTP_HOST']+'/media/'+str(obj.image))
             form = CreateImageForm()
 
         self.context['form'] = form
 
+        self.context['orginal_image'] = obj.image
+
         return render(request, self.template_name, self.context)
+
+    # Open AI image generation
+    def generateImage(self, request, *args, **kwargs):
+        pass
+
 

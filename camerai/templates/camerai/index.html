@@ -62,7 +62,7 @@
 
         <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
             <div class="input-group mb-3 mt-3">
-                <input type="file" class="form-control" name="image">
+                <input type="file" class="form-control" name="image" required>
                 <!-- <label class="input-group-text " for="inputGroupFile02">Select file</label> -->
             </div>
 
@@ -88,22 +88,25 @@
 
 
         <!-- Image thumbnail  -->
-        <div class="container mt-5">
-            <div class="row align-items-start">
-                <div class="col">
-                    <b>Orginal image</b>
-                    <img src="https://via.placeholder.com/150" class="image-display mt-2">
-                </div>
-                <div class="col">
-                    <b>New images</b>
-                    <img src="https://via.placeholder.com/150" class="image-display mt-2">
-                </div>
-                <div class="col">
-                    <b class="text-white">New image</b>
-                    <img src="https://via.placeholder.com/150" class="image-display mt-2">
+        <!-- Show if there is an image to display: ON POST request  -->
+        {% if orginal_image %} 
+            <div class="container mt-5">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <b>Orginal image</b>
+                        <img src="{{form.image.url}}" class="image-display mt-2">
+                    </div>
+                    <div class="col">
+                        <b>New images</b>
+                        <img src="https://via.placeholder.com/150" class="image-display mt-2">
+                    </div>
+                    <div class="col">
+                        <b class="text-white">New image</b>
+                        <img src="https://via.placeholder.com/150" class="image-display mt-2">
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
 
       </main>
     
