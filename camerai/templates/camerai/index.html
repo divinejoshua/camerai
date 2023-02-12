@@ -60,7 +60,7 @@
         <!-- Form button  -->
         <label class="text-muted text-bold">Select an image</label>
 
-        <form method="post" action="">{% csrf_token %}
+        <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
             <div class="input-group mb-3 mt-3">
                 <input type="file" class="form-control" name="image">
                 <!-- <label class="input-group-text " for="inputGroupFile02">Select file</label> -->

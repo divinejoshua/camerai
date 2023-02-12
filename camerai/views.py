@@ -3,14 +3,16 @@ from django.views.generic import TemplateView
 
 from .models import OrginalImage
 from .forms import CreateImageForm
-# Create your views here.
 
+
+# Create your views here.
 class HomeView(TemplateView):
     template_name = "camerai/index.html"
     context = {}
 
     # Get request 
     def get(self, request, *args, **kwargs):
+        print(request.META['HTTP_HOST'])
         return render(request, self.template_name)
 
     # Post request 
@@ -23,8 +25,11 @@ class HomeView(TemplateView):
         if form.is_valid():
             obj = form.save(commit=False)
             obj.save()
+
+            print('http://'+request.META['HTTP_HOST']+'/media/'+str(obj.image))
             form = CreateImageForm()
 
         self.context['form'] = form
 
         return render(request, self.template_name, self.context)
+
