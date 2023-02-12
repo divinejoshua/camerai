@@ -8,6 +8,10 @@ from .forms import CreateImageForm
 import openai
 import urllib.request, urllib.parse, urllib.error
 
+# Settings 
+from django.conf import settings
+
+
 # Create your views here.
 class HomeView(TemplateView):
     template_name = "camerai/index.html"
@@ -45,6 +49,9 @@ class HomeView(TemplateView):
     # Open AI image generation
     def generateImage(self, image_url, *args, **kwargs):
 
+        # Set up open AI authorization
+        openai.api_key = settings.OPENAI_API_KEY
+
         # Get data from image url
 
         img = urllib.request.urlopen(image_url).read()
@@ -53,10 +60,8 @@ class HomeView(TemplateView):
         fhand.close()
 
         # Send request to open AI image generation
-        response = openai.Image.create_edit(
+        response = openai.Image.create_variation(
             image=open("cover3.jpg", "rb"),
-            mask=open("mask.png", "rb"),
-            prompt="A sunlit indoor lounge area with a pool containing a flamingo",
             n=1,
             size="1024x1024"
         )
