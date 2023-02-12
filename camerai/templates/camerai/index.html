@@ -27,6 +27,9 @@
         .bg-main{
             background-color: #DB2777;
         }
+        .image-display{
+            width: 100%;
+        }
     </style>
 
     <title>Camerai</title>
@@ -60,15 +63,28 @@
         <form method="post" action="">{% csrf_token %}
             <div class="input-group mb-3 mt-3">
                 <input type="file" class="form-control" id="inputGroupFile02">
-                <label class="input-group-text " for="inputGroupFile02">Select file</label>
+                <!-- <label class="input-group-text " for="inputGroupFile02">Select file</label> -->
             </div>
 
             <button type="submit" class="btn bg-main text-white mt-2">Submit</button>
         </form>
 
         <!-- Image thumbnail  -->
-        <div>
-
+        <div class="container mt-5">
+            <div class="row align-items-start">
+                <div class="col">
+                    <b>Orginal image</b>
+                    <img src="https://via.placeholder.com/150" class="image-display mt-2">
+                </div>
+                <div class="col">
+                    <b>New images</b>
+                    <img src="https://via.placeholder.com/150" class="image-display mt-2">
+                </div>
+                <div class="col">
+                    <b class="text-white">New image</b>
+                    <img src="https://via.placeholder.com/150" class="image-display mt-2">
+                </div>
+            </div>
         </div>
 
 
