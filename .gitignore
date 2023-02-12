@@ -2,3 +2,4 @@
 media/
 meediafiles/
 static/
+db.sqlite3
