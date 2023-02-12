@@ -61,14 +61,14 @@ class HomeView(TemplateView):
         # fhand.close()
 
         # Send request to open AI image generation
-        response = openai.Image.create_variation(
-            image=open("image.png", "rb"),
+        response = openai.Image.create(
+            prompt="A cute cat in 4k",
             n=1,
             size="1024x1024"
         )
         # recieve response url
         new_image_url = response['data'][0]['url']
-
+        # print(new_image_url)
         return 
 
 
