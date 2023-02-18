@@ -50,19 +50,21 @@ class HomeView(TemplateView):
     # Stability AI image generation
     def generateImage(self, image_url, *args, **kwargs):
         headers = {
-        'Authorization': 'API_KEY_HERE',
+            'Authorization': settings.HOTPOT_AI_KEY,
         }
 
         # change to a full file path of the image you want to transform
         body = {
-        'image': open('didi.jpg', 'rb'),
+            'image': open('didi.jpg', 'rb'),
         }
 
-        response = requests.post('https://api.hotpot.ai/remove-background', headers=headers, files=body)
+        response = requests.post('https://api.hotpot.ai/stable-diffusion-normal', headers=headers, files=body)
 
         # change to a full file path where you want to save the resulting image
         with open('image.jpg', 'wb') as file:
             file.write(response.content)
+        
+        print("hi")
 
 
 
