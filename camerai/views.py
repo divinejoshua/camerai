@@ -8,7 +8,6 @@ from .forms import CreateImageForm
 
 # Settings 
 import requests
-
 from django.conf import settings
 
 
