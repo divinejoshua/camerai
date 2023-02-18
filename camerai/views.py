@@ -5,8 +5,6 @@ from .models import OrginalImage
 from .forms import CreateImageForm
 
 # OpenAI 
-import openai
-import urllib.request, urllib.parse, urllib.error
 
 # Settings 
 from django.conf import settings
@@ -49,26 +47,5 @@ class HomeView(TemplateView):
     # Open AI image generation
     def generateImage(self, image_url, *args, **kwargs):
 
-        # Set up open AI authorization
-        openai.api_key = settings.OPENAI_API_KEY
-
-        # Get data from image url
-
-        # Write the image data to the file
-        # img = urllib.request.urlopen(image_url).read()
-        # fhand = open('image.png', 'wb')
-        # fhand.write(img)
-        # fhand.close()
-
-        # Send request to open AI image generation
-        response = openai.Image.create(
-            prompt="A cute cat in 4k",
-            n=1,
-            size="1024x1024"
-        )
-        # recieve response url
-        new_image_url = response['data'][0]['url']
-        # print(new_image_url)
-        return 
-
+      pass
 
