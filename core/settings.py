@@ -29,7 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = [] 
 
 
-OPENAI_API_KEY = config('OPENAI_API_KEY')
+STABILITY_KEY = config('STABILITY_KEY')
+STABILITY_HOST = config('STABILITY_HOST')
 
 # Application definition
 
