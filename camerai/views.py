@@ -7,8 +7,7 @@ from .forms import CreateImageForm
 # OpenAI 
 
 # Settings 
-from django.conf import settings
-
+import requests
 
 
 
