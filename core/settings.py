@@ -29,9 +29,6 @@ DEBUG = True
 ALLOWED_HOSTS = [] 
 
 
-STABILITY_KEY = config('STABILITY_KEY')
-STABILITY_HOST = config('STABILITY_HOST')
-
 # Application definition
 
 INSTALLED_APPS = [
