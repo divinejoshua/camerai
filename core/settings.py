@@ -29,6 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = [] 
 
 
+HOTPOT_AI_KEY = config('HOTPOT_AI_KEY')
+
 # Application definition
 
 INSTALLED_APPS = [
