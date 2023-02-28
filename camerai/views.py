@@ -48,7 +48,7 @@ class HomeView(TemplateView):
     
     
     # Stability AI image generation
-    def generateImage(self, image_url, *args, **kwargs):
+    def generateImage(self, image_url, *args, **kwargs): 
         headers = {
             'Authorization': settings.HOTPOT_AI_KEY,
         }
