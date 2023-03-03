@@ -46,7 +46,7 @@ class HomeView(TemplateView):
         return render(request, self.template_name, self.context)
 
     
-    
+     
     # Stability AI image generation
     def generateImage(self, image_url, *args, **kwargs):  
         headers = {
